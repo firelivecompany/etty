@@ -1,0 +1,36 @@
+{
+  "name": "etty",
+  "version": "0.0.1",
+  "description": "Library that provides typed translations system without pain for multilanguage websites using typescript and mobx",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firelivecompany/etty.git"
+  },
+  "keywords": [
+    "typescript",
+    "mobx",
+    "react",
+    "translating",
+    "translations",
+    "javascript",
+    "js",
+    "multilanguage"
+  ],
+  "author": "Limbo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firelivecompany/etty/issues"
+  },
+  "homepage": "https://github.com/firelivecompany/etty#readme",
+  "devDependencies": {
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "mobx": "^4.9.0"
+  }
+}
