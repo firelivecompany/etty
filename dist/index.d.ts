@@ -1,4 +1,4 @@
-interface TeastProps<T> {
+interface EttyProps<T> {
     /**
      * A minimal delay before request will be considered as successful.
      * Defaults to `0`.
@@ -21,8 +21,8 @@ interface TeastProps<T> {
      */
     onFetchError?: (error?: any) => void;
 }
-/** A class that represents a Teast store */
-export default class Teast<T> {
+/** A class that represents an Etty store */
+export default class Etty<T> {
     /**
      * @private
      * __observable__
@@ -42,6 +42,7 @@ export default class Teast<T> {
      */
     locale: string;
     /**
+     * @private
      * __observable__
      * Previously loaded locale.
      * Only exists if some new locale is now loading.
@@ -61,11 +62,11 @@ export default class Teast<T> {
      */
     locales: Array<string>;
     /**
-     * Initializes the Teast store instance.
-     * @param props a bunch of Teast props
-     * @returns a Promise that resolves when the Teast store is ready to go.
+     * Initializes the Etty store instance.
+     * @param props a bunch of Etty props
+     * @returns a Promise that resolves when the Etty store is ready to go.
      */
-    init: (props: TeastProps<T>) => Promise<T>;
+    init: (props: EttyProps<T>) => Promise<T>;
     /**
      * @private
      * Check if translation for the specified locale is already loaded or not
@@ -77,7 +78,7 @@ export default class Teast<T> {
      * @private
      * Get translation from the store for the specified locale.
      * Throws an Error if there is no such translation loaded.
-     * This prevents you from forgot the Teast store initialization.
+     * This prevents you from forgot the Etty store initialization.
      */
     getTranslation: (locale: string) => T;
     /**

@@ -7,9 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mobx_1 = require("mobx");
-/** A class that represents a Teast store */
-var Teast = /** @class */ (function () {
-    function Teast() {
+/** A class that represents an Etty store */
+var Etty = /** @class */ (function () {
+    function Etty() {
         var _this = this;
         /**
          * @private
@@ -24,9 +24,9 @@ var Teast = /** @class */ (function () {
          */
         this.ready = false;
         /**
-         * Initializes the Teast store instance.
-         * @param props a bunch of Teast props
-         * @returns a Promise that resolves when the Teast store is ready to go.
+         * Initializes the Etty store instance.
+         * @param props a bunch of Etty props
+         * @returns a Promise that resolves when the Etty store is ready to go.
          */
         this.init = function (props) {
             _this.locales = props.locales;
@@ -69,12 +69,12 @@ var Teast = /** @class */ (function () {
          * @private
          * Get translation from the store for the specified locale.
          * Throws an Error if there is no such translation loaded.
-         * This prevents you from forgot the Teast store initialization.
+         * This prevents you from forgot the Etty store initialization.
          */
         this.getTranslation = function (locale) {
             var translation = _this.traslations.find(function (t) { return t[0] == locale; });
             if (!translation)
-                throw new Error("Locale is " + locale + ", translation not found. Probabaly, you forgot to init the Teast store");
+                throw new Error("Locale is " + locale + ", translation not found. Probabaly, you forgot to init the Etty store");
             return _this.traslations.find(function (t) { return t[0] == locale; })[1];
         };
         /**
@@ -113,7 +113,7 @@ var Teast = /** @class */ (function () {
             _this.prevLocale = undefined;
         };
     }
-    Object.defineProperty(Teast.prototype, "isTranslating", {
+    Object.defineProperty(Etty.prototype, "isTranslating", {
         /**
          * __computed__
          * Displays if there is loading of the translation is being performed.
@@ -124,7 +124,7 @@ var Teast = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Teast.prototype, "loadedLocale", {
+    Object.defineProperty(Etty.prototype, "loadedLocale", {
         /**
          * __computed__
          * Returns the _safe_ locale.
@@ -137,7 +137,7 @@ var Teast = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Teast.prototype, "$", {
+    Object.defineProperty(Etty.prototype, "$", {
         /**
          * __computed__
          * A translation for the loaded locale.
@@ -150,31 +150,31 @@ var Teast = /** @class */ (function () {
     });
     __decorate([
         mobx_1.observable
-    ], Teast.prototype, "traslations", void 0);
+    ], Etty.prototype, "traslations", void 0);
     __decorate([
         mobx_1.observable
-    ], Teast.prototype, "ready", void 0);
+    ], Etty.prototype, "ready", void 0);
     __decorate([
         mobx_1.observable
-    ], Teast.prototype, "locale", void 0);
+    ], Etty.prototype, "locale", void 0);
     __decorate([
         mobx_1.observable
-    ], Teast.prototype, "prevLocale", void 0);
+    ], Etty.prototype, "prevLocale", void 0);
     __decorate([
         mobx_1.action
-    ], Teast.prototype, "loadTranslation", void 0);
+    ], Etty.prototype, "loadTranslation", void 0);
     __decorate([
         mobx_1.action
-    ], Teast.prototype, "setTranslation", void 0);
+    ], Etty.prototype, "setTranslation", void 0);
     __decorate([
         mobx_1.computed
-    ], Teast.prototype, "isTranslating", null);
+    ], Etty.prototype, "isTranslating", null);
     __decorate([
         mobx_1.computed
-    ], Teast.prototype, "loadedLocale", null);
+    ], Etty.prototype, "loadedLocale", null);
     __decorate([
         mobx_1.computed
-    ], Teast.prototype, "$", null);
-    return Teast;
+    ], Etty.prototype, "$", null);
+    return Etty;
 }());
-exports.default = Teast;
+exports.default = Etty;
