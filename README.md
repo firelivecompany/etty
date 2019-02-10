@@ -14,11 +14,11 @@ npm install etty
 2. Create a translation template (e.g. `src/config/template.json`)
 ```json
 {
-	"myAwesomeTranslation": {
-		"field_1": "",
-		"field_2": ""
-	},
-	"myTranslationArray": ["", "", ""]
+    "myAwesomeTranslation": {
+        "field_1": "",
+        "field_2": ""
+    },
+    "myTranslationArray": ["", "", ""]
 }
 ```
 
