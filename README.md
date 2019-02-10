@@ -49,40 +49,40 @@ import Superagent from "superagent"
 
 @observer
 export default class Application extends React.Component {
-	state = {
-		initialError: false
-	}
+    state = {
+        initialError: false
+    }
 
-	componentDidMount() {
-		var userLocale = navigator.userAgent.language
-		var locales = ["en-US", "en-GB", "ru"]
-		EttyStore.init({
-			locales,
-			initialLocale: locales.includes(userLocale)
-				? userLocale
-				: locales[0],
-			fetch: (locale: string) => {
-				return new Promise<Translation>((resolve, reject) => {
-					Superagent.get(`/api/translate/${locale}`).then(resp => {
-						resolve(resp.body) 
-					}).catch(reject)
-				})
-			}
-		}).catch(() => {
-			this.setState({ initialError: true })
-		})
-	}
+    componentDidMount() {
+        var userLocale = navigator.userAgent.language
+        var locales = ["en-US", "en-GB", "ru"]
+        EttyStore.init({
+            locales,
+            initialLocale: locales.includes(userLocale)
+                ? userLocale
+                : locales[0],
+            fetch: (locale: string) => {
+                return new Promise<Translation>((resolve, reject) => {
+                    Superagent.get(`/api/translate/${locale}`).then(resp => {
+                        resolve(resp.body) 
+                    }).catch(reject)
+                })
+            }
+        }).catch(() => {
+            this.setState({ initialError: true })
+        })
+    }
 
-	render() {
-		if (this.state.initialError)
-			return "Whoops! Sorry, we are failed to initialize the application"
+    render() {
+        if (this.state.initialError)
+            return "Whoops! Sorry, we are failed to initialize the application"
 
-		return !EttyStore.ready
-			? // Etty is fetching initial locale translations yet
-			"Prepairing application..."
-			: // Etty is ready now and available anywhere it imported! Do your stuff here
-			EttyStore.$.helloWorld
-	}
+        return !EttyStore.ready
+            ? // Etty is fetching initial locale translations yet
+            "Prepairing application..."
+            : // Etty is ready now and available anywhere it imported! Do your stuff here
+            EttyStore.$.helloWorld
+    }
 }
 ```
 
@@ -134,24 +134,24 @@ import EttyStore from "stores/EttyStore"
 
 @observer
 export default class LocaleSwitch extends React.Component {
-	handleClick = (locale: string) => {
-		if (!EttyStore.isTranslating)
-			EttyStore.loadTranslation(locale)
-	}
+    handleClick = (locale: string) => {
+        if (!EttyStore.isTranslating)
+            EttyStore.loadTranslation(locale)
+    }
 
-	render() {
-		return (
-			<div className="c-locale-switch">
-				{EttyStore.locales.map(locale => (
-					<button
-						key={locale}
-						onClick={() => this.handleClick(locale)}
-						className={`locale ${locale == EttyStore.loadedLocale ? "active" : ""}`}
-					>{locale}</button>
-				))}
-			</div>
-		)
-	}
+    render() {
+        return (
+            <div className="c-locale-switch">
+                {EttyStore.locales.map(locale => (
+                    <button
+                        key={locale}
+                        onClick={() => this.handleClick(locale)}
+                        className={`locale ${locale == EttyStore.loadedLocale ? "active" : ""}`}
+                    >{locale}</button>
+                ))}
+            </div>
+        )
+    }
 }
 ```
 
@@ -165,4 +165,7 @@ export default class LocaleSwitch extends React.Component {
 `@computed`  
 Returns the translation object of type that was specified during construction (e.g. if you used `new Etty<MyTranslationType>()`, then `EttyStore.$` will return object of type `MyTranslationType`). Uses translation for locale specified in `EttyStore.loadedLocale`, so once `EttyStore` initialized, you can consider that this field is safe for work. Throws an error if `EttyStore` is not initialized
 
+---
 
+### Other fields
+Fields that are not described in the section above should be considered as `private` and should not be used.
