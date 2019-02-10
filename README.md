@@ -100,36 +100,30 @@ name | type | required | default value | description
 #### @returns 
 A Promise.
 
----
 
 ### `EttyStore.ready: boolean`
 `@observable`  
 Used as flag that shows, does the `EttyStore` ready for usage or not. Consider not to render your application (at least, do not use `EttyStore.$`) until this field became `true`.
 
----
 
 ### `EttyStore.locale: string`
 `@observable`  
 Current locale of the store. Can reffer both loaded locale and loading locale.
 
----
 
 ### `EttyStore.locales: string[]`
 A plain JS array of locales that was passed to `EttyStore.init`.
 
----
 
 ### `EttyStore.isTranslating: boolean`
 `@computed`  
 Returns `true` if translation for `EttyStore.locale` is now loading and `false` if it's ok and translation for `EttyStore.locale` is already loaded.
 
----
 
 ### `EttyStore.loadedLocale: string`
 `@computed`  
 Returns _safe_ locale, i.e. the last used locale for which the translation already exist. During `EttyStore.isTranslating` is `true`, this property does not equals `EttyStore.locale`. Use it everywhere you need to use current locale of the language (e.g. some translatable fields in your API response, etc). The translation that is returned in `EttyStore.$` uses locale that specified in `EttyStore.loadedLocale`.
 
----
 
 ### `EttyStore.loadTranslation()`
 Use this function when you want to change locale. For example:
@@ -167,7 +161,6 @@ export default class LocaleSwitch extends React.Component {
 `boolean`. If the translation for specified locale has already been loaded, then this method just changes the `EttyStore.locale` and returns `false` (means: "No, I'm not loading anything!"). Otherwise changes the `EttyStore.locale`, starts to load the translation (the flag `EttyStore.isTranslating` became `true`) and returns `true` (means: "Yes, sir, I'm loading the translation!")
 
 
----
 ### `EttyStore.$: T`
 `@computed`  
 Returns the translation object of type that was specified during construction (e.g. if you used `new Etty<MyTranslationType>()`, then `EttyStore.$` will return object of type `MyTranslationType`). Uses translation for locale specified in `EttyStore.loadedLocale`, so once `EttyStore` initialized, you can consider that this field is safe for work. Throws an error if `EttyStore` is not initialized
