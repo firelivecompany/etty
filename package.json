@@ -12,6 +12,7 @@
     "url": "git+https://github.com/firelivecompany/etty.git"
   },
   "keywords": [
+    "i18n",
     "typescript",
     "mobx",
     "react",
