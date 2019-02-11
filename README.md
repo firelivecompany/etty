@@ -169,3 +169,11 @@ Returns the translation object of type that was specified during construction (e
 
 ### Other fields
 Fields that are not described in the section above should be considered as `private` and should not be used.
+
+---
+
+## Generate translation JSON's based on template
+There is an [etty-mockup](https://github.com/firelivecompany/etty-mockup) that was created exactly for this purpose! :)
+
+## Contributing
+Feel free to leave issues, feature and pull requests. Any help that will make Etty better is highly appreciated!
