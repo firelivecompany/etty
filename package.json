@@ -1,8 +1,9 @@
 {
   "name": "etty",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Library that provides typed translations system without pain for multilanguage websites using typescript and mobx",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/tsc"

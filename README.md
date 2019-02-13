@@ -172,8 +172,12 @@ Fields that are not described in the section above should be considered as `priv
 
 ---
 
-## Generate translation JSON's based on template
-There is an [etty-mockup](https://github.com/firelivecompany/etty-mockup) that was created exactly for this purpose! :)
+## Generate translation JSONs based on template
+There is an [etty-mockup](https://github.com/firelivecompany/etty-mockup) that was created exactly for this purpose!  
+You may also be interested in automated translation files generating via Webpack. I have developed the [`etty-webpack-plugin`](https://github.com/firelivecompany/etty-webpack-plugin) for this purpose.
+
+## Real-life example
+Now is developing at [`etty-example`](https://github.com/firelivecompany/etty-example) repo. Some things are already done, so visit it to get more clearly how this library works.
 
 ## Contributing
 Feel free to leave issues, feature and pull requests. Any help that will make Etty better is highly appreciated!
