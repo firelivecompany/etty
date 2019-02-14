@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mobx_1 = require("mobx");
 /** A class that represents an Etty store */
 var Etty = /** @class */ (function () {
-    function Etty() {
+    function Etty(template) {
         var _this = this;
         /**
          * @private

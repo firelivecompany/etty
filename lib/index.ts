@@ -30,6 +30,7 @@ interface EttyProps<T> {
 
 /** A class that represents an Etty store */
 export default class Etty<T> {
+	constructor(template: T) {}
 	/**  
 	 * @private
 	 * __observable__  
